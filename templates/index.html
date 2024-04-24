@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNZA BIODIVERSA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <!-- Contenido del encabezado -->
+        <h1>BIODIVERSIDAD EN FUNZA</h1>
+        <section id="navbar">
+            {% include 'navbar.html'%}
+        </section>
+    </header>
+
+    <main>
+        <!-- Contenido principal -->
+        <section id="hero">
+            {% include 'hero.html' %}
+        </section>
+
+        <section id="fauna">
+            {% include 'fauna.html' %}
+        </section>
+
+        <section id="flora">
+            {% include 'flora.html' %}
+        </section>
+
+        <section id="about">
+            {% include 'acerca.html' %}
+        </section>
+
+        <section id="contact">
+            {% include 'contacto.html' %}
+        </section>
+    </main>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color:darkgreen;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero {
+    color: black;
+}
+
+.fauna {
+    color: white;
+    background-color: darkgreen;
+}
+
+.flora {
+    color: black;
+    background-color: white;
+}
+
+.about {
+    background-color:darkgreen ;
+    color: white;
+    padding: 20px;
+}
+
+.contact-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
