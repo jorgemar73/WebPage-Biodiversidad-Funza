@@ -14,16 +14,19 @@ header {
 
 .hero {
     color: black;
+    padding: 20px;
 }
 
 .fauna {
     color: white;
     background-color: darkgreen;
+    padding: 20px;
 }
 
 .flora {
     color: black;
     background-color: white;
+    padding: 20px;
 }
 
 .about {
