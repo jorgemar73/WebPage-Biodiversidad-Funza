@@ -17,16 +17,38 @@ header {
     padding: 20px;
 }
 
+#nav-logo{
+    height: 50px;
+}
+
 .fauna {
     color: white;
     background-color: darkgreen;
     padding: 20px;
 }
 
+.fauna img{
+    height: 266px;
+    object-fit: contain;
+}
+
+.fauna h5{
+    font-size: 14px;
+}
+
 .flora {
     color: black;
     background-color: white;
     padding: 20px;
+}
+
+.flora img{
+    height: 266px;
+    object-fit: contain;
+}
+
+.flora h5{
+    font-size: 14px;
 }
 
 .about {
