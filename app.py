@@ -1,6 +1,7 @@
 # Importar flask como microframework; render para las plantillas html y request para manejo de datos de solicitudes http
 from flask import Flask, render_template, request
 from configDb import *
+from grafica import *
 # Importamos la biblioteca sqlite3 para interactuar con la base de datos SQLite y la renombramos como sql
 import sqlite3 as sql
 
