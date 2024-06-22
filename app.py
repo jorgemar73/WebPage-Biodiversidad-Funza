@@ -21,26 +21,23 @@ def addrec():
             conexion = sql.connect("D:/BOOTCAMP/PAGINA_WEB_BIODIVERSIDAD_FUNZA_V3/db/contactos.db")
             conexion.execute("insert into formulario (id_document,name1,lastname,correoe,phone,message) VALUES (?,?,?,?,?,?)",(id_document,name1,lastname,correoe,phone,message) )
             conexion.commit()
-            #conexion.close()
-            msg = "Record succesfully added"
+
+            return render_template('index.html')
             
-        except:
-            conexion.rollback()
-            msg = "Error in insert operation"
-        finally:
-            return render_template("D:/BOOTCAMP/PAGINA_WEB_BIODIVERSIDAD_FUNZA_V3/templates/datos.html", msg = msg)
-            conexion.close()
+        except sqlite3.OperationalError:
+            print ("Oops! This was an operational error. Try again...")
+            
+        except sqlite3.NameError:
+            print ("Name Error")
 
-@app.route('/list')
-def list():
-    con = sql.connect("D:/BOOTCAMP/PAGINA_WEB_BIODIVERSIDAD_FUNZA_V3/db/contactos.db")
-    con.row_factory = sql.Row
+        except sqlite3.ValueError:
+            print ("value error")
 
-    cur = con.cursor()
-    cur.execute("""select * from formulario""")
+        except sqlite3.IOError:
+            print ("IO error")
+        
+    conexion.close()
 
-    rows = cur.fetchall();
-    return render_template("D:/BOOTCAMP/PAGINA_WEB_BIODIVERSIDAD_FUNZA_V3/templates/datos.html",rows = rows)
 
 if __name__ == '__main__':
     app.run(debug = True)
