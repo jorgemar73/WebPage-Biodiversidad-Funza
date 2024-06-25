@@ -65,4 +65,17 @@
         <button type="submit" name="enviar">Enviar</button>
         <button type="button" onclick="window.location.href='/';">Cancelar</button>
     </form>
+
+    {% if table_html %}
+    <h2>Datos de Especies de Cundinamarca</h2>
+    {{ table_html|safe }}
+    {% endif %}
+
+    {% if graph_html %}
+    <h2>Gráfico Especies de Cundinamarca</h2>
+    <div style="border: 5px rgb(16, 38, 119) solid;">
+        {{ graph_html|safe }}
+    </div>
+    {% endif %}
+    
 </div>

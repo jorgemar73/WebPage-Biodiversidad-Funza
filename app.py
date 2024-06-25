@@ -1,9 +1,15 @@
 # Importar flask como microframework; render para las plantillas html y request para manejo de datos de solicitudes http
 from flask import Flask, render_template, request
+import matplotlib.pyplot as plt
+import pandas as pd
 from configDb import *
-from grafica import *
+from graficaDf import final_df
 # Importamos la biblioteca sqlite3 para interactuar con la base de datos SQLite y la renombramos como sql
 import sqlite3 as sql
+import seaborn as sns
+from io import BytesIO
+import base64
+
 
 # Creamos una instancia de la clase Flask y la asignamos a la variable app. El argumento __name__ es una variable especial que define el nombre del módulo actual.
 # Flask la usa para encontrar archivos estáticos y plantillas.
@@ -60,6 +66,26 @@ def addrec():
 
 # Cerramos la conexión con la base de datos después de que se completa la operación.
     conexion.close()
+
+# Generar gráfica en html
+def upload():
+    table_html = final_df.to_html(classes="table table-striped")
+    #Crear el gráfico
+    plt.figure(figsize=(10, 6))
+    sns.lineplot(data=final_df, x='Especie', y='Registro')
+    plt.xlabel('2023')
+    plt.ylabel('Cantidad de Registros')
+    plt.title('Registros de Especies de Flora en el departamento de Cundinamarca')
+    plt.tight_layout()
+    #Guardar el gráfico en el buffer de memoria
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    #Codificar el gráfico en base64
+    graph_encoded = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    graph_html = f'<img src="data:image/png;base64,{graph_encoded}" alt="Gráfico">'
+    
+    return render_template('D:/BOOTCAMP/PAGINA_WEB_BIODIVERSIDAD_FUNZA_V3/templates/contacto.html', table_html=table_html, graph_html=graph_html)
 
 # Verifica si el archivo se está ejecutando directamente (no importado como un módulo).
 if __name__ == '__main__':

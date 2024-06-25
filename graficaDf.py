@@ -33,3 +33,6 @@ plt.show()
 
 # Guardar la gráfica como imagen
 #plt.savefig('grafica.png')
+
+# Guardar el gráfico como html
+#plt.write_html('grafico.html')
